@@ -32,8 +32,24 @@ from pathlib import Path
 # Load environment variables from .env file
 load_dotenv()
 
-# Initialize Groq client
-groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+def get_api_key():
+    """Get API key from environment or Streamlit secrets"""
+    # Try to get from environment first
+    api_key = os.getenv("GROQ_API_KEY")
+    
+    # If not in environment, try to get from Streamlit secrets
+    if not api_key and hasattr(st, "secrets") and "GROQ_API_KEY" in st.secrets:
+        api_key = st.secrets["GROQ_API_KEY"]
+    
+    return api_key
+
+# Initialize Groq client with more robust API key handling
+groq_api_key = get_api_key()
+if groq_api_key:
+    groq_client = Groq(api_key=groq_api_key)
+else:
+    st.error("No Groq API key found. Please set it in the Streamlit secrets or .env file")
+    groq_client = None
 
 # Initialize usage counters
 if "text_queries" not in st.session_state:
