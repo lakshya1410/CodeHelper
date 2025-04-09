@@ -1,0 +1,8 @@
+streamlit==1.31.0
+groq==0.4.1
+python-dotenv==1.0.0
+matplotlib==3.8.2
+networkx==3.2.1
+Pillow==10.1.0
+PyAudio-wheels==0.2.11
+SpeechRecognition==3.10.0
