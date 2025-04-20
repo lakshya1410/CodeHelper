@@ -1,5 +1,5 @@
 # 🚀 AI Code Helper 🧑‍💻
-![image](https://github.com/user-attachments/assets/a8b6e5ef-1f41-4857-bb0b-33174cc2d3fe)
+github-submission-banner
 
 ![AI Code Helper Banner](https://via.placeholder.com/800x200?text=AI+Code+Helper)
 
